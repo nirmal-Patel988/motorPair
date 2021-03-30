@@ -54,4 +54,5 @@ void motorPair::compute(){
         motorPair::myPID->Compute();
         motorPair::m1->setPWM(motorPair::PWM + motorPair::Output);
     }
+    Serial.println(String(Input)+","+String(Output));
 }
