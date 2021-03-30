@@ -26,7 +26,7 @@ void motorPair::reset(){
 void motorPair::setTunnings(double kp , double ki ,double kd){
     motorPair::Kp=kp;
     motorPair::Ki=ki;
-    motorPair::kd=kd;
+    motorPair::Kd=kd;
     myPID->SetTunings(motorPair::Kp,motorPair::Ki,motorPair::Kd);
 }
 

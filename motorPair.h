@@ -1,7 +1,7 @@
 #ifndef motorPair_h
 #define motorPair_h
 
-#include <motor.h>
+#include <Motor.h>
 #include <PID_v1.h>
 
 class motorPair{
@@ -15,15 +15,16 @@ class motorPair{
     PID *myPID =  new PID(&Input,&Output,&Setpoint,Kp,Ki,Kd,DIRECT);
     Motor *m1,*m2;
     int PWM = 0;
-    
-    void getReadings();
+    motorPair();
+    motorPair(Motor * mtr1 ,Motor * mtr2);
+    long getReadings();
     void setReadings(long readings);
     void reset();
     void setTunnings(double Kp , double Ki ,double Kd);
     void setPWM(int pwm);
     void compute();
-    void brakeEnable(bool brake = true);
-    void brakeDisable(bool brake = true);
+    void enableBrake(bool brake= true);
+    void disableBrake(bool brake= true);
 };
 
 #endif
