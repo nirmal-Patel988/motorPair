@@ -43,16 +43,18 @@ void motorPair::disableBrake(bool b){
 }
 
 void motorPair::compute(){
-    if(!motorPair::brake){
-        motorPair::Input = motorPair::m1->getReadings() - motorPair::m2->getReadings();
-        motorPair::myPID->Compute();
-        motorPair::m1->setPWM(motorPair::PWM + motorPair::Output);
-        motorPair::m2->setPWM(motorPair::PWM - motorPair::Output);
+    if(motorPair::enable){
+        if(!motorPair::brake){
+            motorPair::Input = motorPair::m1->getReadings() - motorPair::m2->getReadings();
+            motorPair::myPID->Compute();
+            motorPair::m1->setPWM(motorPair::PWM + motorPair::Output);
+            motorPair::m2->setPWM(motorPair::PWM - motorPair::Output);
+        }
+        else{
+            Input = motorPair::m1->getReadings();
+            motorPair::myPID->Compute();
+            motorPair::m1->setPWM(motorPair::PWM + motorPair::Output);
+        }
+        Serial.println(String(Input)+","+String(Output));
     }
-    else{
-        Input = motorPair::m1->getReadings();
-        motorPair::myPID->Compute();
-        motorPair::m1->setPWM(motorPair::PWM + motorPair::Output);
-    }
-    Serial.println(String(Input)+","+String(Output));
 }
