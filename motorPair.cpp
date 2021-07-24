@@ -29,7 +29,7 @@ void motorPair::reset(){
     motorPair::m2->reset();
 }
 
-void motorPair::setTunnings(double kp , double ki ,double kd){
+void motorPair::setTunings(double kp , double ki ,double kd){
     motorPair::Kp=kp;
     motorPair::Ki=ki;
     motorPair::Kd=kd;
