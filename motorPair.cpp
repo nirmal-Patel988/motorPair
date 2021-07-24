@@ -18,11 +18,11 @@ void motorPair::setReadings(long readings){
     motorPair::m2->setReadings(readings);
 }
 void motorPair::setSoftTunings(double Kp,double Kd,double Ki){
-    myPID->setTunings(motorPair::Kp,motorPair::Ki,motorPair::Kd);
+    motorPair::setTunings(motorPair::Kp,motorPair::Ki,motorPair::Kd);
 }
 
 void motorPair::setAggTunings(double Kp,double Kd,double Ki){
-    myPID->setTunings(motorPair::Kp,motorPair::Ki,motorPair::Kd);
+    motorPair::setTunings(motorPair::Kp,motorPair::Ki,motorPair::Kd);
 }
 void motorPair::reset(){
     motorPair::m1->reset();
