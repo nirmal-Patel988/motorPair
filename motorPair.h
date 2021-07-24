@@ -26,8 +26,8 @@ class motorPair{
     void compute();
     void enableBrake(bool brake= true);
     void disableBrake(bool brake= true);
-    void setSoftTunnings(double Kp,double Kd,double Ki);
-    void setAggTunnings(double Kp,double Kd,double Ki);
+    void setSoftTunings(double Kp,double Kd,double Ki);
+    void setAggTunings(double Kp,double Kd,double Ki);
     void setThreshold(int threshold);
 };
 
