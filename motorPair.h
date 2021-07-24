@@ -12,6 +12,7 @@ class motorPair{
     bool stable = false;
     double Kp=0, Ki=0, Kd = 0;
     double Setpoint = 0,Output = 0,Input = 0;
+    int Threshold;
     PID *myPID =  new PID(&Input,&Output,&Setpoint,Kp,Ki,Kd,DIRECT);
     Motor *m1,*m2;
     int PWM = 0;
@@ -25,6 +26,9 @@ class motorPair{
     void compute();
     void enableBrake(bool brake= true);
     void disableBrake(bool brake= true);
+    void setSoftTunnings(double Kp,double Kd,double Ki);
+    void setAggTunnings(double Kp,double Kd,double Ki);
+    void setThreshold(int threshold);
 };
 
 #endif
